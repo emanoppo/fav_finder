@@ -1,0 +1,36 @@
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 120px;
+  text-align: center;
+}
+
+label {
+  margin-right: 5px;
+}
+
+li {
+  list-style-type: none;
+}
+
+img {
+  max-width: 400px;
+}
+
+input[type="submit"] {
+  background: pink;
+  border-style: none;
+}
+
+input[type="submit"]:hover {
+  cursor: pointer;
+}
+
+.fav-finder {
+  margin: auto;
+  max-width: 400px;
+  padding: 24px;
+}
+
+.header {
+  font-size: 1.2rem;
+}
