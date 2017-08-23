@@ -16,7 +16,13 @@ class FavFinderForm(forms.Form):
     url = forms.CharField(required=True)
 
     def clean_url(self):
-        """Clean, format, and validate URL field."""
+        """Clean, format, and validate URL field.
+
+        Here we remove any path or querystring on the URL. This assumes we're
+        only interested in the favicon for a site's main page. E.g. we're happy
+        with the favicon for www.target.com, and don't need to separately save
+        the favicon for www.target.com/some-other-page.
+        """
         url = self.cleaned_data.get('url')
         url = url.strip()
 
@@ -42,7 +48,12 @@ class FavFinderForm(forms.Form):
         return url
 
     def save(self):
-        """Save form."""
+        """Save form.
+
+        This assumes we want to update the existing Favicon record if there's a
+        new favicon URL, rather than creating a new record for the new favicon
+        URL.
+        """
         url = self.cleaned_data.get('url')
         favicon, created = Favicon.objects.get_or_create(url=url)
         favicon_url = favicon.get_favicon_for_url(url)

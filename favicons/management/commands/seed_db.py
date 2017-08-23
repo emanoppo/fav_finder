@@ -22,7 +22,7 @@ class Command(BaseCommand):
 
     def add_arguments(self, parser):
         """Let us specify how many rows to save to the DB."""
-        parser.add_argument('rows', type=int, nargs='?', default=3)
+        parser.add_argument('rows', type=int, nargs='?', default=200000)
 
     def handle(self, *args, **options):
         """Let us seed the database!."""

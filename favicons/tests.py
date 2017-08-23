@@ -3,4 +3,4 @@ from __future__ import unicode_literals
 
 from django.test import TestCase
 
-# Create your tests here.
+# If I had more time, I would be writing tests here.
